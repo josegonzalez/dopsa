@@ -17,7 +17,7 @@ options = [{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']]
 # Standard Dash app code below
 app.layout = html.Div(className='container', children=[
 
-    Header('Sample App', app),
+    Header('Jose\'s Sample App', app),
 
     Row([
         Column(width=4, children=[
