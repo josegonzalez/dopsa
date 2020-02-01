@@ -13,6 +13,7 @@ def Header(title, app):
         },
         children=[
             Column(
+                id='title',
                 width=6,
                 children=title,
                 style={

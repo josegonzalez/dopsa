@@ -1,6 +1,7 @@
 import os
 import dash
 from dash.dependencies import Input, Output
+import dash_enterprise_auth as auth
 import dash_core_components as dcc
 import dash_html_components as html
 
@@ -17,7 +18,7 @@ options = [{'label': i, 'value': i} for i in ['LA', 'NYC', 'MTL']]
 # Standard Dash app code below
 app.layout = html.Div(className='container', children=[
 
-    Header('Jose\'s Sample App', app),
+    Header('Sample App', app),
 
     Row([
         Column(width=4, children=[
@@ -32,6 +33,14 @@ app.layout = html.Div(className='container', children=[
         ])
     ])
 ])
+
+
+@app.callback(Output('title', 'children'), [Input('title', 'id')])
+def give_name(title):
+    username = auth.get_username()
+    if username:
+        return '{}\'s Sample App'.format(username)
+    return 'Anonymous Sample App'
 
 
 @app.callback(Output('graph', 'figure'),
