@@ -1,4 +1,4 @@
-dash==1.6.1
+dash==2.15.0
 plotly
 gunicorn
 dash-enterprise-auth
